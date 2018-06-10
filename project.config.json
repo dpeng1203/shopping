@@ -1,0 +1,10 @@
+{
+	"miniprogramRoot": "./client",
+	"qcloudRoot": "./server",
+	"setting": {
+		"newFeature": true
+	},
+	"appid": "wx614d384a227fe576",
+	"projectname": "%2Fhome%2Fd-peng%2F%E5%95%86%E5%9F%8E",
+	"condition": {}
+}
