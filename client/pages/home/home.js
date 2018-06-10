@@ -1,4 +1,6 @@
 // pages/home/home.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+
 Page({
 
   data: {
@@ -35,5 +37,15 @@ Page({
     }], // 商品列表
   
   },
-
+  onLoad: function(options) {
+    qcloud.request({
+      url: 'https://krzni9qp.qcloud.la/weapp/product',
+      success: result => {
+        console.log(result.data)
+      },
+      fail: result => {
+        console.log('error!')
+      }
+    })
+  }
 })
