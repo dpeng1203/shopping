@@ -1,5 +1,4 @@
 // pages/user/user.js
-//const app = getApp( )
 Page({
 
   /**
@@ -25,16 +24,6 @@ Page({
     // } else {
     //   //用户按了拒绝按钮
     // }
-      // app.login({
-      //     success: ({ userInfo }) => {
-      //         this.setDate ({
-      //           userInfo: {
-      //             nickName: "段朋",
-      //             avatarUrl: "",
-      //           }
-      //         })
-      //     }
-      // })
   },
   onTapAddress() {
         wx.showToast({
@@ -48,33 +37,6 @@ Page({
       title: '此功能暂未开放'
     })
   },
-  // checkSession({ success, error }) {
-  //        if (userInfo) {
-  //            return success && success({
-  //         userInfo
-  //              })
-  //       }
- 	 
-    //   wx.checkSession({
-    //     success: () => {
-    //           this.getUserInfo({
-    //         success: res => {
-    //                   userInfo = res.userInfo
-          
-    //                     success && success({
-    //             userInfo
-    //                       })
-    //               },
-    //         fail: () => {
-    //               error && error()
-    //               }
-    //       })
-    //     },
-    //   fail: () => {
-    //         error && error()
-    //      }
-    //   })
-    // },
   /**
    * 生命周期函数--监听页面加载
    */
