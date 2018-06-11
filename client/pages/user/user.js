@@ -1,4 +1,8 @@
 // pages/user/user.js
+const config = require('../../config.js')
+
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+
 Page({
 
   /**
@@ -27,7 +31,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      qcloud.setLoginUrl(config.service.loginUrl)
+      qcloud.login({
+          success: res => {
+            console.log('success')
+              console.log(res)
+          },
+          fail: res => {
+              console.log('fail')
+          }
+      })
   },
 
   /**
