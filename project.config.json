@@ -6,5 +6,31 @@
 	},
 	"appid": "wx614d384a227fe576",
 	"projectname": "%2Fhome%2Fd-peng%2F%E5%95%86%E5%9F%8E",
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "detail商品详情",
+					"pathName": "pages/detail/detail"
+				}
+			]
+		}
+	}
 }

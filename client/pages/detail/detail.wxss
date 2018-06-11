@@ -1,0 +1,129 @@
+/* pages/detail/detail.wxss */
+page{
+    box-sizing: border-box;
+    background: #F6F6F6;
+}
+.detail-card{
+    padding-bottom: 15rpx;
+    background: #FFFFFF;
+    box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+}
+.detail-image{
+    width: 370rpx;
+    height: 370rpx;
+    display: block;
+    margin: 0 auto;
+}
+.detail-title{
+    margin: 42rpx 50rpx 0;
+    font-size: 38rpx;
+    line-height: 53rpx;
+    color: rgba(29, 29, 38, 0.8);
+    font-weight: bold;
+}
+.detail-city{
+  margin: 5rpx 50rpx 0;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #8B8B8B;
+}
+.detail-meta{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 30rpx;
+}
+.detail-money{
+    width: 47rpx;
+    height: 47rpx;
+    line-height: 47rpx; 
+    text-align: center;
+    border-radius: 50%;
+    color: #34373D;
+    font-size: 34rpx;
+    font-weight: bold;
+    background: #F7E687;
+}
+.detail-price{
+    font-size: 38rpx;
+    margin: 0 10rpx;
+}
+.info-card{
+    margin: 26rpx 27rpx;
+    padding: 0 26rpx;
+    background: #FFFFFF;
+    box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+    border-radius: 13rpx;
+}
+.check-list{
+     padding: 43rpx 15rpx 39rpx;
+    border-bottom: 1px solid rgba(151, 151, 151, 0.2);
+}
+.check{
+    display: flex;
+    align-items: center;
+}
+.check-yellow{
+    width: 22rpx;
+    height: 16rpx;
+}
+.check-text{
+    margin-left: 15rpx;
+    font-size: 28rpx;
+    color: #34373D;
+    line-height: 47rpx;
+}
+.comment{
+    padding: 26rpx 10rpx 21rpx;
+    display: flex;
+    align-items: center;
+}
+.comment-title {
+    font-size: 30rpx;
+    line-height: 42rpx;
+    color: rgba(29, 29, 38, 0.8);
+    font-weight: bold;
+}
+
+.comment-count {
+    flex: 1;
+    margin-right: 16rpx;
+    text-align: right;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #8B8B8B;
+}
+
+.comment-arrow {
+    width: 11rpx;
+    height: 18rpx;
+}
+.comment-preview {
+    margin-top: 26rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #8B8B8B;
+}
+.handle{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.handle-trolley, .handle-buy{
+    flex: 1;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 30rpx;
+    color: #34373D;
+    font-weight: bold;
+    text-align: center;
+}
+.handle-trolley{
+    background: rgba(245, 224, 105, 0.6);
+}
+.handle-buy{
+    background:  #F5E069;
+}

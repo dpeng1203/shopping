@@ -1,0 +1,34 @@
+<!--pages/detail/detail.wxml-->
+<view class='detail-card'>
+    <image class='detail-image' src='{{product.image}}'></image>
+    <view class='detail-title'>{{product.name}}</view>
+    <view class='detail-city'>{{product.source}}</view>
+    <view class='detail-meta'>
+        <view class='detail-money'>￥</view>
+        <view class='detail-price'>{{product.price}}</view>
+    </view>
+</view>
+
+<view class='info-card'>
+    <view class='check-list'>
+        <view class='check'>
+            <image class='check-yellow' src='/images/check-yellow.png'></image>
+            <view class='check-text'>七天免费退货</view>
+        </view>
+        <view class='check'>
+            <image class='check-yellow' src='/images/check-yellow.png'></image>
+            <view class='check-text'>24小时发货并配送运费</view>
+        </view> 
+    </view>
+    <view class='comment'>
+        <view class='comment-title'>已买评价</view>
+        <view class='comment-count'>1条</view>
+        <image src='/images/grey-arrow.png'  class='comment-arrow'></image>
+    </view>
+    <view class='comment-preview'>"test"</view>
+</view> 
+
+<view class='handle'>
+    <view class='handle-trolley'>加入购物车</view>
+    <view class='handle-buy'>立刻购买</view>
+</view>
