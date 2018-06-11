@@ -1,8 +1,5 @@
 /* pages/detail/detail.wxss */
-page{
-    box-sizing: border-box;
-    background: #F6F6F6;
-}
+
 .detail-card{
     padding-bottom: 15rpx;
     background: #FFFFFF;

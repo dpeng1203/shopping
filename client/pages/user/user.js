@@ -5,9 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      userInfo: null,
+      // userInfo: {
+      //   nickName: "段朋",
+      //   avatarUrl: "",
+      // }
   },
-
+  onTapAddress() {
+        wx.showToast({
+            icon: 'none',
+            title: '此功能暂未开放'
+        })
+  },
+  onTapKf() {
+    wx.showToast({
+      icon: 'none',
+      title: '此功能暂未开放'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,8 +1,4 @@
 /* pages/home/home.wxss */
-page{
-    box-sizing: border-box;
-    background: #F6F6F6;
-}
 .hot-card{
     position: relative;
     margin: 32rpx 52rpx 0;
