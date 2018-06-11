@@ -1,8 +1,5 @@
 // pages/user/user.js
-const config = require('../../config.js')
-
-const qcloud = require('../../vendor/wafer2-client-sdk/index')
-
+//const app = getApp( )
 Page({
 
   /**
@@ -14,6 +11,30 @@ Page({
       //   nickName: "段朋",
       //   avatarUrl: "",
       // }
+  },
+  onTapLogin(e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.userInfo)
+    console.log(e.detail.rawData)
+      this.setData({
+        userInfo: e.detail.userInfo
+      })
+   //console.log(e.detail.userInfo)
+    // if (e.detail.userInfo) {
+    //   //用户按了允许授权按钮
+    // } else {
+    //   //用户按了拒绝按钮
+    // }
+      // app.login({
+      //     success: ({ userInfo }) => {
+      //         this.setDate ({
+      //           userInfo: {
+      //             nickName: "段朋",
+      //             avatarUrl: "",
+      //           }
+      //         })
+      //     }
+      // })
   },
   onTapAddress() {
         wx.showToast({
@@ -27,20 +48,54 @@ Page({
       title: '此功能暂未开放'
     })
   },
+  // checkSession({ success, error }) {
+  //        if (userInfo) {
+  //            return success && success({
+  //         userInfo
+  //              })
+  //       }
+ 	 
+    //   wx.checkSession({
+    //     success: () => {
+    //           this.getUserInfo({
+    //         success: res => {
+    //                   userInfo = res.userInfo
+          
+    //                     success && success({
+    //             userInfo
+    //                       })
+    //               },
+    //         fail: () => {
+    //               error && error()
+    //               }
+    //       })
+    //     },
+    //   fail: () => {
+    //         error && error()
+    //      }
+    //   })
+    // },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      qcloud.setLoginUrl(config.service.loginUrl)
-      qcloud.login({
-          success: res => {
-            console.log('success')
-              console.log(res)
-          },
-          fail: res => {
-              console.log('fail')
-          }
-      })
+    // 查看是否授权
+    wx.getSetting({
+      success: res => {
+        console.log(res)
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success: res => {
+             // console.log(res.userInfo)
+              //用户已经授权过
+              this.setData({
+                userInfo: res.userInfo
+              })
+            }
+          })
+        }
+      }
+    })
   },
 
   /**
@@ -53,9 +108,15 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
-  },
+  // onShow: function () {
+  //   app.checkSession({
+  //     success: ({ userInfo }) => {
+  //              this.setData({
+  //         userInfo
+  //                 })
+  //           }
+  //     })
+  // },
 
   /**
    * 生命周期函数--监听页面隐藏
