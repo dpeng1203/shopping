@@ -27,7 +27,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -51,6 +51,12 @@
 					"id": -1,
 					"name": "order",
 					"pathName": "pages/order/order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "trolley",
+					"pathName": "pages/trolley/trolley",
 					"query": ""
 				}
 			]

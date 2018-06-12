@@ -13,7 +13,7 @@ Page({
             count: 1,
             image: 'https://product-1256901696.cos.ap-shanghai.myqcloud.com/product1.jpg',
             name: '钱包',
-            price: 126.5,
+            price: 45,
           }]
         },
         {

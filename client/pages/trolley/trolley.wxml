@@ -1,13 +1,72 @@
 <!--pages/trolley/trolley.wxml-->
 <view class="order-card" wx:if="{{userInfo}}">
-    <view class="order-info">
+    <view wx:if="{{trolleyList.length > 0}}">
+        <view class='trolley-top'>
+            <view class='trolley-total'>
+                <view class="trolley-check-wrapper white {{isTrolleyTotalCheck ? 'check' : ''}}">
+                     <image class='trolley-check' src='/images/check.png' wx:if='{{isTrolleyTotalCheck}}'></image>
+                </view>
+                <view class='trolley-total-text'>全选</view>
+                <view class='trolley-edit'>{{isTrolleyEdit ? '完成' : '编辑'}}</view>
+            </view>
+        </view>
+        <scroll-view>
+            <view class='product-card'>
+                <view class="trolley-check-wrapper {{trolleyCheckMap[trolleyList[0].id] ? 'check' : ''}}">
+                    <image class="trolley-check" src='/images/check.png' wx:if="{{trolleyCheckMap[trolleyList[0].id]}}"></image>
+                </view>
+                <image class="product-img" src="{{trolleyList[0].image}}"></image> 
+                <view class='product-info'>
+                    <view class='product-name'>{{trolleyList[0].name}}</view>
+                    <view class='product-price'>￥ {{trolleyList[0].price}}</view>
+                    <view class='product-count-edit' wx:if='{{isTrolleyEdit}}'>
+                        <view class='count-minus'>-</view>
+                        <view class='count-now'>{{item.count}}</view>
+                        <view class='count-add'>+</view>
+                    </view>
+                    <view class="product-count" wx:else>x {{item.count}}</view>
+                </view>
+            </view>
+
+            <view class='product-card'>
+                <view class="trolley-check-wrapper {{trolleyCheckMap[trolleyList[1].id] ? 'check' : ''}}">
+                    <image class="trolley-check" src='/images/check.png' wx:if="{{trolleyCheckMap[trolleyList[1].id]}}"></image>
+                </view>
+                <image class="product-img" src="{{trolleyList[1].image}}"></image> 
+                <view class='product-info'>
+                    <view class='product-name'>{{trolleyList[1].name}}</view>
+                    <view class='product-price'>￥ {{trolleyList[1].price}}</view>
+                    <view class='product-count-edit' wx:if='{{isTrolleyEdit}}'>
+                        <view class='count-minus'>-</view>
+                        <view class='count-now'>{{item.count}}</view>
+                        <view class='count-add'>+</view>
+                    </view>
+                    <view class="product-count" wx:else>x {{item.count}}</view>
+                </view>
+            </view>
+        </scroll-view> 
+
+          <view class='trolley-account'>
+              <view class='trolley-total'>
+                  <view class="trolley-check-wrapper {{isTrolleyTotalCheck ? 'check' : ''}}">
+                      <image class='trolley-check' src='/images/check.png' wx:if='{{isTrolleyTotalCheck}}'></image>
+                  </view>
+                  <view class="trolley-total-text">全选</view>
+               </view>
+              <view class="trolley-account-text">
+                  <view>总价</view>
+                  <view class="trolley-account-now">¥ {{trolleyAccount}}</view>
+              </view>
+               <view class="pay-btn {{trolleyAccount ? 'canpay' : ''}}">结算</view>
+          </view> 
+    </view>
+    <view class="order-info" wx:else>
         <view>
             <image class="order-image" src="/images/order.png"></image>
             <view class="order-text">购物车是空的</view>
             <view class="order-text">快添加物品进来吧</view>
         </view>
     </view>
-    
 </view>
 
 
