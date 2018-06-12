@@ -11,24 +11,24 @@ Page({
           id: 0,
           list: [{
             count: 1,
-            image: '填入任意你之前上传到腾讯云的图片链接',
-            name: '商品1',
-            price: 50.5,
+            image: 'https://product-1256901696.cos.ap-shanghai.myqcloud.com/product1.jpg',
+            name: '钱包',
+            price: 126.5,
           }]
         },
         {
           id: 1,
           list: [{
             count: 1,
-            image: '填入任意你之前上传到腾讯云的图片链接',
-            name: '商品1',
-            price: 50.5,
+            image: 'https://product-1256901696.cos.ap-shanghai.myqcloud.com/product2.jpg',
+            name: '金色木吉他',
+            price: 480.5,
           },
           {
             count: 1,
-            image: '填入任意你之前上传到腾讯云的图片链接',
-            name: '商品2',
-            price: 50.5,
+            image: 'https://product-1256901696.cos.ap-shanghai.myqcloud.com/product3.jpg',
+            name: '红纹铁质装订机',
+            price: 28.0,
           }
           ]
         },
@@ -36,9 +36,9 @@ Page({
           id: 2,
           list: [{
             count: 1,
-            image: '填入任意你之前上传到腾讯云的图片链接',
-            name: '商品2',
-            price: 50.5,
+            image: 'https://product-1256901696.cos.ap-shanghai.myqcloud.com/product4.jpg',
+            name: '新鲜有机青菜',
+            price: 30.9,
           }]
         }
       ], // 订单列表

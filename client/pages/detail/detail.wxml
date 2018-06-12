@@ -30,5 +30,5 @@
 
 <view class='handle'>
     <view class='handle-trolley'>加入购物车</view>
-    <view class='handle-buy'>立刻购买</view>
+    <view class='handle-buy' bindtap='buy'>立刻购买</view>
 </view>

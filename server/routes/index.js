@@ -37,4 +37,6 @@ router.get('/product', controllers.product.list)
 router.get('/product/:id', controllers.product.detail)
 
 
+router.post('/order', validationMiddleware, controllers.order.add)
+
 module.exports = router

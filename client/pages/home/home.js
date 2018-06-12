@@ -1,7 +1,5 @@
 // pages/home/home.js
-const config = require('../../config.js')
 
-const qcloud = require('../../vendor/wafer2-client-sdk/index')
 
 Page({
 
@@ -16,36 +14,19 @@ Page({
   
   },
   onLoad: function(options) {
-    this.getProductList()
-
-  },
-  getProductList(){
-    wx.showLoading({
-      title: '商品数据加载中',
-    })
-    qcloud.request({
-      url: 'https://krzni9qp.qcloud.la/weapp/product',
-      success: result => {
-        wx.hideLoading()
-        var res = result.data
-        console.log(result.data.data)
-        if (!res.code) {
-          this.setData({
-            productList: res.data
-          })
-        } else {
-          wx.showToast({
-            title: '商品数据加载失败',
-          })
-        }
-        
+    var that = this
+    wx.request({
+      url: 'http://pa7onzeml.bkt.clouddn.com/product',
+      header: {
+        'content-type': 'application/json' // 默认值
       },
-      fail: result => {
-        wx.hideLoading()
-        wx.showToast({
-          title: '商品数据加载失败',
+      success: function (res) {
+        //console.log(res.data[2].data)
+        that.setData({
+          productList:  res.data[2].data
         })
       }
     })
-  }
+  },
+  
 })

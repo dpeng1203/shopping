@@ -2,41 +2,41 @@
 
 const qcloud = require('../../vendor/wafer2-client-sdk/index')
 
+const config = require('../../config.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    product: {
-      id: 1,
-      image: 'https://product-1256088332.cos.ap-guangzhou.myqcloud.com/product2.jpg',
-      name: '商品',
-      price: 480.5,
-      source: '国内·广东'
-    }
+    product: ''
   },
-
+  
+  buy() {
+    wx.showToast({
+      title: '购买成功',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      //console.log(options.id)
       this.getDetail(options.id)
   },
   getDetail(id){
     wx.showLoading({
       title: '商品数据加载中',
     })
-    qcloud.request({
-      url: 'https://krzni9qp.qcloud.la/weapp/product/id',
+    wx.request({
+      url: 'http://pa7onzeml.bkt.clouddn.com/product',
       success: result => {
         wx.hideLoading()
-        var res = result.data
+        var res = result.data[2].data
         //console.log(result)
         if (!res.code) {
           this.setData({
-            product: res.data
+            product: res[id - 1]
           })
         } else {
           setTimeout( () => {
