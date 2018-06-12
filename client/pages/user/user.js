@@ -12,9 +12,9 @@ Page({
       // }
   },
   onTapLogin(e) {
-    console.log(e.detail.errMsg)
-    console.log(e.detail.userInfo)
-    console.log(e.detail.rawData)
+    // console.log(e.detail.errMsg)
+    // console.log(e.detail.userInfo)
+    // console.log(e.detail.rawData)
       this.setData({
         userInfo: e.detail.userInfo
       })
@@ -41,14 +41,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   
+  },
+  onShow: function () {
     // 查看是否授权
     wx.getSetting({
       success: res => {
-        console.log(res)
+        //console.log(res)
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: res => {
-             // console.log(res.userInfo)
+              // console.log(res.userInfo)
               //用户已经授权过
               this.setData({
                 userInfo: res.userInfo
@@ -70,15 +73,6 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  // onShow: function () {
-  //   app.checkSession({
-  //     success: ({ userInfo }) => {
-  //              this.setData({
-  //         userInfo
-  //                 })
-  //           }
-  //     })
-  // },
 
   /**
    * 生命周期函数--监听页面隐藏

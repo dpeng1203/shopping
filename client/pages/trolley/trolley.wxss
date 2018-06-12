@@ -1,1 +1,25 @@
 /* pages/trolley/trolley.wxss */
+.order-card{
+    margin: 50rpx 27rpx ;
+    background: #FFFFFF;
+    box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+    border-radius: 13rpx;
+}
+.order-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     height: 600rpx;
+}
+.order-image{
+    height: 100rpx;
+    width: 100rpx;
+    flex-shrink: 0;
+    display: block;
+    margin: 0 auto;
+}
+.order-text{
+    text-align: center;
+    opacity: 0.5;
+    margin-top: 10rpx;
+}

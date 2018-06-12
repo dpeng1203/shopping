@@ -1,2 +1,22 @@
 <!--pages/order/order.wxml-->
-<text>pages/order/order.wxml</text>
+<view class="order-card" wx:if="{{userInfo}}">
+    <view class="order-info">
+        <view>
+            <image class="order-image" src="/images/order.png"></image>
+            <view class="order-text">暂时没有订单</view>
+        </view>
+    </view>
+    
+</view>
+
+
+<view wx:else>
+    <view class='unlogin-card'>
+        <view class='unlogin-head'></view>
+        <view class="unlogin-info">
+            <view class="unlogin-text">未登录</view>
+            <view class="unlogin-tips">点击微信登录后可方便购物</view>
+        </view>
+    </view>
+    <button class="unlogin-btn" open-type="getUserInfo" bindgetuserinfo="onTapLogin">微信登录</button>
+</view>
