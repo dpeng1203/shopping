@@ -12,7 +12,16 @@ Page({
   data: {
     product: ''
   },
-  
+  addToTrolley () {
+    //console.log(this.data.product)
+    wx.setStorage({
+      key: "key",
+      data: this.data.product
+    })
+    wx.showToast({
+      title: '已加入购物车',
+    })
+  },
   buy() {
     wx.showToast({
       title: '购买成功',
@@ -29,7 +38,7 @@ Page({
       title: '商品数据加载中',
     })
     wx.request({
-      url: 'http://pa7onzeml.bkt.clouddn.com/product',
+      url: 'http://pa7onzeml.bkt.clouddn.com/product1',
       success: result => {
         wx.hideLoading()
         var res = result.data[2].data

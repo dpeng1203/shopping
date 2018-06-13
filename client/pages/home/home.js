@@ -16,7 +16,7 @@ Page({
   onLoad: function(options) {
     var that = this
     wx.request({
-      url: 'http://pa7onzeml.bkt.clouddn.com/product',
+      url: 'http://pa7onzeml.bkt.clouddn.com/product1',
       header: {
         'content-type': 'application/json' // 默认值
       },

@@ -21,10 +21,10 @@ Page({
       source: '海外·新西兰',
       count: 3,
     }], // 购物车商品列表
-    trolleyCheckMap: [undefined, true, undefined], // 购物车中选中的id哈希表
+    trolleyCheckMap: [], // 购物车中选中的id哈希表
     trolleyAccount: 45, // 购物车结算总价
     isTrolleyEdit: false, // 购物车是否处于编辑状态
-    isTrolleyTotalCheck: true, // 购物车中商品是否全选
+    isTrolleyTotalCheck: false, // 购物车中商品是否全选
   },
   onTapLogin(e) {
     // console.log(e.detail.errMsg)
@@ -40,7 +40,47 @@ Page({
     //   //用户按了拒绝按钮
     // }
   },
+  onTapCheckSingle(event) {
+    let checkId = event.currentTarget.dataset.id	    
+    let trolleyCheckMap = this.data.trolleyCheckMap
+    let trolleyList = this.data.trolleyList
+    let numTotalProduct
+    let numCheckedProduct = 0
 
+    let isTrolleyTotalCheck = this.data.isTrolleyTotalCheck
+
+    // 单项商品被选中/取消
+    trolleyCheckMap[checkId] = !trolleyCheckMap[checkId]
+    // 商品的总数量
+    numTotalProduct = trolleyList.length
+    //console.log(numTotalProduct)
+    //遍历选中个数
+    trolleyCheckMap.forEach( checked => {
+      checked ? numCheckedProduct += 1 : numCheckedProduct
+    })
+    //console.log(numCheckedProduct)
+    //判断是否全选
+    isTrolleyTotalCheck = (numCheckedProduct === numTotalProduct) ? true : false
+    
+    this.setData({
+      trolleyCheckMap,
+      isTrolleyTotalCheck
+    })
+  },
+  onTapCheckTotal(event) {
+    let trolleyCheckMap = this.data.trolleyCheckMap
+    let trolleyList = this.data.trolleyList
+    let isTrolleyTotalCheck = this.data.isTrolleyTotalCheck
+    isTrolleyTotalCheck = !isTrolleyTotalCheck
+    trolleyList.forEach(product => {
+      trolleyCheckMap[product.id] = isTrolleyTotalCheck
+    })
+    this.setData({
+      isTrolleyTotalCheck,
+      trolleyCheckMap
+    })
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -74,6 +114,17 @@ Page({
             }
           })
         }
+      }
+    })
+    wx.getStorage({
+      key: "key",
+      success: res => {
+        //console.log(res.data)
+        this.data.trolleyList.push(res.data)
+        //console.log(this.data.trolleyList)
+        this.setData({
+          trolleyList: this.data.trolleyList
+        })
       }
     })
   },
