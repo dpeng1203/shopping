@@ -42,10 +42,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width:36rpx;
-    height: 36rpx;
+    width:44rpx;
+    height: 44rpx;
     border-radius: 50%;
     background: #ECECEE;
+    margin: 0 10rpx;
 }
 .trolley-check-wrapper.white {
     background: #FFFFFF;

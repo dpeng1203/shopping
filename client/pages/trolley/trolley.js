@@ -17,7 +17,7 @@ Page({
       id: 2,
       name: '商品2',
       image: 'https://s3.cn-north-1.amazonaws.com.cn/u-img/product2.jpg',
-      price: 158,
+      price: 480.5,
       source: '海外·新西兰',
       count: 3,
     }], // 购物车商品列表
@@ -58,6 +58,7 @@ Page({
         product = trolleyList[index]
         if (product.count <= 1) {
           trolleyList.splice(index, 1)
+          this.isAllCheck()
         } else {
           product.count--
         }
@@ -88,17 +89,20 @@ Page({
     })
   },
   onTapCheckSingle(event) {
-    let checkId = event.currentTarget.dataset.id	    
+    let checkId = event.currentTarget.dataset.id
+    let trolleyCheckMap = this.data.trolleyCheckMap
+    // 单项商品被选中/取消
+    trolleyCheckMap[checkId] = !trolleyCheckMap[checkId]
+    this.isAllCheck()
+  },
+  isAllCheck(){
     let trolleyCheckMap = this.data.trolleyCheckMap
     let trolleyList = this.data.trolleyList
     let trolleyAccount = this.data.trolleyAccount
     let numTotalProduct
     let numCheckedProduct = 0
-
     let isTrolleyTotalCheck = this.data.isTrolleyTotalCheck
-
-    // 单项商品被选中/取消
-    trolleyCheckMap[checkId] = !trolleyCheckMap[checkId]
+   
     // 商品的总数量
     numTotalProduct = trolleyList.length
     //console.log(numTotalProduct)
@@ -108,7 +112,7 @@ Page({
     })
     //console.log(numCheckedProduct)
     //判断是否全选
-    isTrolleyTotalCheck = (numCheckedProduct === numTotalProduct) ? true : false
+    isTrolleyTotalCheck = (numCheckedProduct >= numTotalProduct) ? true : false
     
     trolleyAccount = this.calcAccount(trolleyList, trolleyCheckMap)
     this.setData({
@@ -186,11 +190,14 @@ Page({
       success: res => {
         //console.log(res.data)
         let trolleyList = this.data.trolleyList
+        let trolleyCheckMap = this.data.trolleyCheckMap
+        let trolleyAccount = this.data.trolleyAccount
+        let isTrolleyTotalCheck = this.data.isTrolleyTotalCheck
         let flog = true
         let product
         for (let index = 0; index < trolleyList.length; index++) {
-          console.log(trolleyList[index].id)
-          console.log(res.data.id)
+          //console.log(trolleyList[index].id)
+          //console.log(res.data.id)
           if(trolleyList[index].id == res.data.id) {
             flog = false
             product = trolleyList[index]
@@ -199,9 +206,13 @@ Page({
         }
         if (flog) {
           this.data.trolleyList.push(res.data)
+          isTrolleyTotalCheck = false
         }
+        trolleyAccount = this.calcAccount(trolleyList, trolleyCheckMap)
         this.setData({
-          trolleyList
+          trolleyList,
+          trolleyAccount,
+          isTrolleyTotalCheck
         })
       }
     })
