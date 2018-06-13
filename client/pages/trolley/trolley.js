@@ -56,7 +56,7 @@ Page({
     for (let index = 0; index < trolleyList.length; index ++) {
       if (trolleyList[index].id === minusId) {
         product = trolleyList[index]
-        if (product.count === 1) {
+        if (product.count <= 1) {
           trolleyList.splice(index, 1)
         } else {
           product.count--
@@ -141,6 +141,11 @@ Page({
     })
     return acount
   },
+  pay() {
+    wx.showToast({
+      title: '商品购买成功',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -180,10 +185,23 @@ Page({
       key: "key",
       success: res => {
         //console.log(res.data)
-        this.data.trolleyList.push(res.data)
-        //console.log(this.data.trolleyList)
+        let trolleyList = this.data.trolleyList
+        let flog = true
+        let product
+        for (let index = 0; index < trolleyList.length; index++) {
+          console.log(trolleyList[index].id)
+          console.log(res.data.id)
+          if(trolleyList[index].id == res.data.id) {
+            flog = false
+            product = trolleyList[index]
+            product.count++
+          }
+        }
+        if (flog) {
+          this.data.trolleyList.push(res.data)
+        }
         this.setData({
-          trolleyList: this.data.trolleyList
+          trolleyList
         })
       }
     })

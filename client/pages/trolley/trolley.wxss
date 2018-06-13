@@ -133,7 +133,7 @@
 .trolley-account {
   display: flex;
   align-items: center;
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   right: 0;
