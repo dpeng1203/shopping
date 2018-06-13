@@ -7,8 +7,9 @@
                      <image class='trolley-check' src='/images/check.png' wx:if='{{isTrolleyTotalCheck}}'></image>
                 </view>
                 <view class='trolley-total-text'>全选</view>
-                <view class='trolley-edit'>{{isTrolleyEdit ? '完成' : '编辑'}}</view>
             </view>
+            <view class='trolley-edit' bindtap='onTapEdit'>{{isTrolleyEdit ? '完成' : '编辑'}}</view>
+            
         </view>
         <scroll-view>
            
@@ -22,9 +23,9 @@
                     <view class='product-name'>{{item.name}}</view>
                     <view class='product-price'>￥ {{item.price}}</view>
                     <view class='product-count-edit' wx:if='{{isTrolleyEdit}}'>
-                        <view class='count-minus'>-</view>
+                        <view class='count-minus' bindtap='countMinus' data-id='{{item.id}}'>-</view>
                         <view class='count-now'>{{item.count}}</view>
-                        <view class='count-add'>+</view>
+                        <view class='count-add' bindtap='countAdd' data-id='{{item.id}}'>+</view>
                     </view>
                     <view class="product-count" wx:else>x {{item.count}}</view>
                 </view>

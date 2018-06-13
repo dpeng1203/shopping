@@ -22,7 +22,7 @@ Page({
       count: 3,
     }], // 购物车商品列表
     trolleyCheckMap: [], // 购物车中选中的id哈希表
-    trolleyAccount: 45, // 购物车结算总价
+    trolleyAccount: 0, // 购物车结算总价
     isTrolleyEdit: false, // 购物车是否处于编辑状态
     isTrolleyTotalCheck: false, // 购物车中商品是否全选
   },
@@ -40,10 +40,58 @@ Page({
     //   //用户按了拒绝按钮
     // }
   },
+  onTapEdit() {
+    let isTrolleyEdit = this.data.isTrolleyEdit
+    isTrolleyEdit = !isTrolleyEdit
+    this.setData({
+      isTrolleyEdit
+    })
+  },
+  countMinus(event){
+    //console.log(event)
+    let minusId = event.currentTarget.dataset.id
+    let trolleyList = this.data.trolleyList
+    let trolleyCheckMap = this.data.trolleyCheckMap
+    let product
+    for (let index = 0; index < trolleyList.length; index ++) {
+      if (trolleyList[index].id === minusId) {
+        product = trolleyList[index]
+        if (product.count === 1) {
+          trolleyList.splice(index, 1)
+        } else {
+          product.count--
+        }
+      }
+    }
+    let trolleyAccount = this.calcAccount(trolleyList, trolleyCheckMap)
+    this.setData({
+      trolleyAccount,
+      trolleyList
+    })
+  },
+  countAdd(event) {
+   // console.log(event)
+    let minusId = event.currentTarget.dataset.id
+    let trolleyList = this.data.trolleyList
+    let trolleyCheckMap = this.data.trolleyCheckMap
+    let product
+    for (let index = 0; index < trolleyList.length; index++) {
+      if (trolleyList[index].id === minusId) {
+        product = trolleyList[index]
+        product.count ++
+      }
+    }
+    let trolleyAccount = this.calcAccount(trolleyList, trolleyCheckMap)
+    this.setData({
+      trolleyAccount,
+      trolleyList
+    })
+  },
   onTapCheckSingle(event) {
     let checkId = event.currentTarget.dataset.id	    
     let trolleyCheckMap = this.data.trolleyCheckMap
     let trolleyList = this.data.trolleyList
+    let trolleyAccount = this.data.trolleyAccount
     let numTotalProduct
     let numCheckedProduct = 0
 
@@ -62,24 +110,36 @@ Page({
     //判断是否全选
     isTrolleyTotalCheck = (numCheckedProduct === numTotalProduct) ? true : false
     
+    trolleyAccount = this.calcAccount(trolleyList, trolleyCheckMap)
     this.setData({
       trolleyCheckMap,
-      isTrolleyTotalCheck
+      isTrolleyTotalCheck,
+      trolleyAccount
     })
   },
   onTapCheckTotal(event) {
     let trolleyCheckMap = this.data.trolleyCheckMap
     let trolleyList = this.data.trolleyList
     let isTrolleyTotalCheck = this.data.isTrolleyTotalCheck
+    let trolleyAccount = this.data.trolleyAccount
     isTrolleyTotalCheck = !isTrolleyTotalCheck
     trolleyList.forEach(product => {
       trolleyCheckMap[product.id] = isTrolleyTotalCheck
     })
+    trolleyAccount = this.calcAccount(trolleyList, trolleyCheckMap)
     this.setData({
       isTrolleyTotalCheck,
-      trolleyCheckMap
+      trolleyCheckMap,
+      trolleyAccount
     })
     
+  },
+  calcAccount(trolleyList, trolleyCheckMap) {
+    let acount =0
+    trolleyList.forEach(product => {
+      trolleyCheckMap[product.id] ? acount += product.price * product.count : acount
+    })
+    return acount
   },
   /**
    * 生命周期函数--监听页面加载

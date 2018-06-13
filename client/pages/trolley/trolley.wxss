@@ -25,6 +25,9 @@
 
 /* 购物车商品样式 */
 .trolley-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding-left: 24rpx;
   padding-bottom: 20rpx;
 }
