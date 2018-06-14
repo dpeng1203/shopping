@@ -1,0 +1,22 @@
+der","version":"4.7.0","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"cAuth"},
+{"type":"table","name":"product","database":"cAuth","data":
+[
+{"id":"1","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product1.jpg","name":"\u94b1\u5305","price":"132.00","source":"\u56fd\u5185\u00b7\u5e7f\u4e1c"},
+{"id":"2","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product2.jpg","name":"\u91d1\u8272\u6728\u5409\u4ed6","price":"480.50","source":"\u56fd\u5185\u00b7\u5e7f\u4e1c"},
+{"id":"3","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product3.jpg","name":"\u7ea2\u7eb9\u94c1\u8d28\u88c5\u8ba2\u673a","price":"28.00","source":"\u56fd\u5185\u00b7\u798f\u5efa"},
+{"id":"4","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product4.jpg","name":"\u65b0\u9c9c\u6709\u673a\u9752\u852c","price":"30.90","source":"\u56fd\u5185\u00b7\u6c5f\u82cf"},
+{"id":"5","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product5.jpg","name":"\u4eff\u94c1\u76d8\u521b\u610f\u65f6\u949f","price":"45.00","source":"\u6d77\u5916\u00b7\u745e\u5178"},
+{"id":"6","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product6.jpg","name":"\u65b0\u9c9c\u91c7\u6458\u8461\u8404","price":"24.80","source":"\u56fd\u5185\u00b7\u65b0\u7586"},
+{"id":"7","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product7.jpg","name":"\u679c\u852c\u5927\u793c\u5305","price":"158.00","source":"\u6d77\u5916\u00b7\u65b0\u897f\u5170"},
+{"id":"8","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product8.jpg","name":"\u7ea2\u8272\u590d\u53e4\u8f7f\u8f66\u6a21\u578b","price":"35.00","source":"\u6d77\u5916\u00b7\u5fb7\u56fd"},
+{"id":"9","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product9.jpg","name":"\u98ce\u9a70\u7535\u63a3\u5c0f\u6469\u6258","price":"249.00","source":"\u56fd\u5185\u00b7\u6d59\u6c5f"},
+{"id":"10","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product10.jpg","name":"\u7b50\u88c5\u5927\u7ea2\u82f9\u679c","price":"29.80","source":"\u56fd\u5185\u00b7\u5c71\u4e1c"},
+{"id":"11","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product11.jpg","name":"\u7cbe\u88c5\u8010\u7528\u7537\u978b","price":"335.00","source":"\u56fd\u5185\u00b7\u5e7f\u4e1c"},
+{"id":"12","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product12.jpg","name":"\u5b97\u6559\u5723\u5730\u65c5\u6e38\u7eaa\u5ff5","price":"1668.00","source":"\u6d77\u5916\u00b7\u5370\u5ea6"},
+{"id":"13","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product13.jpg","name":"\u9ad8\u54c1\u8d28\u539f\u88c5\u6cf5","price":"2000.80","source":"\u56fd\u5185\u00b7\u6cb3\u5317"},
+{"id":"14","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product14.jpg","name":"\u91d1\u521a\u8f71\u8f98\u5708","price":"34.00","source":"\u56fd\u5185\u00b7\u8fbd\u5b81"},
+{"id":"15","count": "1","image":"https:\/\/product-1256901696.cos.ap-shanghai.myqcloud.com\/product15.jpg","name":"\u4e07\u5723\u8282\u5357\u74dc","price":"29.90","source":"\u6d77\u5916\u00b7\u7f8e\u56fd"}
+]
+}
+]
